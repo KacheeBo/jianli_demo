@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.mapper.IntroMapper">
+    <resultMap id="IntroMapping" type="com.example.demo.entity.Intro">
+        <id column="introid" property="introid"/>
+        <result column="intro" property="intro"/>
+    </resultMap>
+
+    <select id="queryAllIntro" resultMap="IntroMapping">
+        select * from intro
+        where introid=#{introid}
+    </select>
+
+    <insert id="updateIntro">
+        replace into intro(introid,intro) values (#{introid},#{intro})
+    </insert>
+</mapper>
